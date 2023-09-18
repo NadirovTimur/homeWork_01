@@ -2,10 +2,52 @@
 
 Задание 1 – Создать объект counter всеми возможными способами;
 
+var counter = new Object();
+counter.currentCount = 1;
+
+
+function counter() {
+  this.currentCount = 1;
+}
+var counter = new counter();
+
+var counter = {
+  var currentCount = 1;
+};
+var counter = Object.create(counter);
+
+class counter {
+  constructor() {
+    this.currentCount = 0;
+  }
+}
+
+let counter = new counter(1);
+
 Задание 2 – Скопировать объект counter всеми
 возможными способами;
 
+const cloneCounter = { ...counter};
+
+const cloneCounter = Object.assign({}, counter);
+
+const cloneCounter = JSON.parse(JSON.stringify(counter))
+
+const cloneCounter = structuredClone(counter);
+
+
+
 Задание 3 – Создать функцию makeCounter всеми описанными и возможными способами;
+
+function makeCounter() {
+  var currentCount = 0;
+
+  return function() {
+    return currentCount++;
+  };
+}
+
+
 
 Бонус
 Задание 1 –
@@ -21,11 +63,17 @@ const obj2 = { here: { is:
 const deepEqual =
 (obj1, obj2) => {};
 
+function deepEqual (first, second) {
+  for (i = 0; i < first.legth; i++){
+
+  }
+}
+
 
 Бонус 
 Задание 2 –
 Развернуть строку в обратном направлении при помощи методов массивов:
 
 function reverseStr(str) {
-  return …
+  return str = str.split("").reverse().join("");
 }
