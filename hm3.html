@@ -19,9 +19,10 @@ function logger() {
 
 const obj = { item: "some value" };
 
-logger.bind(obj);
+logger.bind(obj)();
 logger.call(obj);
 logger.apply(obj);
 
 Бонус задание: Реализовать полифил(собственную функцию реализующую встроенную в js) метода bind()
+
 
