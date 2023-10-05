@@ -100,3 +100,23 @@ class Person extends PersonThree {
         super(firstName, secondName, yearOfBirth);
       }
     }
+
+    БОНУС: 
+1) Написать функцию, которая вернет массив с первой парой чисел, сумма которых равна total:
+
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+total = 13;
+//result = [4, 9]
+
+const firstSum = (arr, total) => {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i; j < arr.length; j++) {
+            if (arr[i] + arr[j] === total) {
+                return [arr[i], arr[j]]
+            }
+        }
+    }
+};
+
+
+2) Какая сложность у вашего алгоритма ? O(n^2)
