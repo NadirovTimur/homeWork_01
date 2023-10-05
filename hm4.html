@@ -34,6 +34,9 @@ let Person = {
       }
 }
 
+const Person2 = Object.create(Person);
+
+
 
 function createPerson(name, secName, year) {
     this.firstName = name;
@@ -77,6 +80,8 @@ createPerson.prototype = {
         console.log(this.firstName, this.secondName, this.yearOfBirth)
     }
 }
+
+
 
 4) Создать класс PersonThree c get и set для поля name и конструктором, сделать класс наследник от класса Person.
 
