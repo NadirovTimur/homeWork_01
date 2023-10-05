@@ -1,15 +1,102 @@
 1) Какие бывают алгоритмы сортировок ? 
 
-
+сортировка пузырьком и шейкерная - сортировки в которых идет сравнение всех элементов и сохранение большего, в шейкерной с двух сторон идет сортировка.
+выборе самое большего
+метод ескуерти (блочная) О(n*n^(1/2))
+сортировка подсчетом много памяти жрет (состоят из 2 отдельных форов первый собирает массив информации о колво чисел map, второй фор с помощью mapa собирает массив)
 
 2) Прочитать про "Операторы и выражения, циклы в JS"
 
+оператор присваивания - обычное присваивание, и с математическими операторами(+,-,*,/,%) и со сдвигами(<<,>>,>>>)
+операторы сравнения - больше, меньше, равно, не равно, строгое равно
+арифметические операторы - +,-,*,/,%,++,--,**
+побитовый оператор - <<,>>,>>>
+логические операторы - ||, &&, !
+строковый оператор - +(конкотинация)
+условный оператор - условие ? да : нет
+оператор typeof возвращет тип операнда
 
 
 3) Создать объект Person несколькими способами, после создать объект Person2, чтобы в нём были доступны методы объекта Person. 
 Добавить метод logInfo чтоб он был доступен всем объектам.
 
+let Person = new Object();
+Person.firstName = Ivan;
+Person.secondName = Ivanov;
+Person.yearOfBirth = 2000;
 
+let Person = {
+    firstName: 'Ivan',
+    secondName: 'Ivanov',
+    yearOfBirth: 2000,
+    showName() {
+        console.log("Меня зовут: " + this.firstName);
+      }
+}
+
+
+function createPerson(name, secName, year) {
+    this.firstName = name;
+    this.secondName = secName;
+    this.yearOfBirth = year;
+    this.showName = function() {
+        console.log( "Меня зовут: " + this.firstName );
+      };
+    }
+
+let Person = new createPerson('Ivan', 'Ivanov', 2000);
+
+
+const createPerson = {
+  firstName: 'Ivan',
+  secondName: 'Ivanov',
+  yearOfBirth: 2000,
+};
+var Person = Object.create(createPerson);
+
+
+class createPerson {
+    constructor(name, secondName, year){
+      this.firstName = name;
+      this.secondName = secondName;
+      this.yearOfBirth = year;
+    };
+    
+    log(){
+      console.log('Имя: ', this.firstName);
+      console.log('Год рождения: ', this.yearOfBirth);
+    }
+}
+let Person = new createPerson('Ivan', 'Ivanov', 2000);
+
+createPerson.prototype = {
+    "computeAge":   function(currentYear) {
+                        return currentYear - this.yearOfBirth;
+                    },
+    "logInfo": function(){
+        console.log(this.firstName, this.secondName, this.yearOfBirth)
+    }
+}
 
 4) Создать класс PersonThree c get и set для поля name и конструктором, сделать класс наследник от класса Person.
 
+class PersonThree {
+    constructor(name, secondName, year){
+      this.firstName = name;
+      this.secondName = secondName;
+      this.yearOfBirth = year;
+    };
+    
+    get(){
+      return this.firstName;
+    }
+    set(newName){
+        this.firstName = newName;
+    }
+}
+
+class Person extends PersonThree {
+    constructor(firstName, secondName, yearOfBirth){
+        super(firstName, secondName, yearOfBirth);
+      }
+    }
